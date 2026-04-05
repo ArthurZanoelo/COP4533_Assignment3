@@ -94,3 +94,21 @@ def hvlcs(A: str, B: str, values: dict) -> tuple[int, str]:
 
     result.reverse()
     return dp[n][m], "".join(result)
+
+
+def main():
+    if len(sys.argv) > 1:
+        with open(sys.argv[1]) as f:
+            text = f.read()
+    else:
+        text = sys.stdin.read()
+
+    values, A, B = parse_input(text)
+    max_val, subseq = hvlcs(A, B, values)
+
+    print(max_val)
+    print(subseq)
+
+
+if __name__ == "__main__":
+    main()
